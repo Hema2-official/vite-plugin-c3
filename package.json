@@ -1,0 +1,51 @@
+{
+    "name": "vite-plugin-c3",
+    "version": "1.0.0",
+    "license": "MIT",
+    "author": "hema2",
+    "files": [
+        "src",
+        "types"
+    ],
+    "type": "module",
+    "types": "types/index.d.ts",
+    "exports": {
+        ".": {
+            "import": {
+                "types": "./types/index.d.ts",
+                "default": "./src/index.js"
+            }
+        }
+    },
+    "scripts": {
+        "check:types": "tsc --noEmit"
+    },
+    "engines": {
+        "node": "^18.0.0 || ^20.0.0 || >=22"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Hema2-official/vite-plugin-c3.git"
+    },
+    "bugs": {
+        "url": "https://github.com/Hema2-official/vite-plugin-c3/issues"
+    },
+    "homepage": "https://github.com/Hema2-official/vite-plugin-c3",
+    "keywords": [
+        "vite-plugin",
+        "vite plugin",
+        "vite",
+        "c3",
+        "c3lang",
+        "c3-lang",
+        "c3c",
+        "c3 compiler"
+    ],
+    "dependencies": {
+        "@c3-lang/c3c": "~0.6.2-stable",
+        "glob": "^11.0.0"
+    },
+    "peerDependencies": {
+        "vite": "^5.0.0"
+    }
+}
