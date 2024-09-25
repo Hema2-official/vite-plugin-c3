@@ -11,13 +11,13 @@ import { c3c } from 'vite-plugin-c3';
 // ...
 
 export default defineConfig({
-	plugins: [
+    plugins: [
         // Include the plugin:
-		c3c({
+        c3c({
             /* config options */
         })
-	],
-	// ...
+    ],
+    // ...
 });
 ```
 
