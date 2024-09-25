@@ -25,17 +25,14 @@ export function c3c(options) {
         
     // Find the project root
     const projectRoot = process.cwd();
-    console.log('Project root:', projectRoot);
 
     const findFiles = () => {
         // Find C3 files: compile glob pattern list from include/exclude
         const toExclude = globSync(opts.exclude);
-        console.log('Excluding:', toExclude);
 
         const toInclude = globSync(opts.include, {
             exclude: (path) => toExclude.includes(path)
         });
-        console.log('Including:', toInclude);
 
         // Return absolute paths
         return toInclude.map((file) => path.normalize(path.resolve(projectRoot, file)));
@@ -46,7 +43,6 @@ export function c3c(options) {
 
         // Find files (paths are relative to project root)
         const c3Files = findFiles();
-        console.log('C3 files:', c3Files);
 
         // Create compiler command
         const commandForC3C = [
@@ -84,11 +80,8 @@ export function c3c(options) {
     const handleHotUpdate = async ({ file, server }) => {
         // Fetch source files (absolute paths)
         const c3Files = findFiles();
-        console.log('C3 files:', c3Files);
-        console.log('Hot update:', file);
 
         if (c3Files.includes(path.normalize(file))) {
-            console.log('Handling hot update...');
             try {
                 // Rebuild C3 files
                 rebuild();
