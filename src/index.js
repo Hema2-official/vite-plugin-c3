@@ -39,7 +39,7 @@ export function c3c(options) {
     };
 
     const rebuild = () => {
-        console.log('Building C3 files...');
+        console.log('[C3] Building C3 files...');
 
         // Find files (paths are relative to project root)
         const c3Files = findFiles();
@@ -59,13 +59,9 @@ export function c3c(options) {
             c3Files.join(' ')        // C3 source files
         ].join(' ');
 
-        try {
-            run_c3c(commandForC3C, { cwd: projectRoot });
-        } catch (error) {
-            console.error('C3 compilation failed: ', error);
-        }
-
-        console.log(`Built ${opts.outputPath}.wasm`);
+        // C3C automatically prints errors
+        run_c3c(commandForC3C, { cwd: projectRoot });
+        console.log(`[C3] Built ${opts.outputPath}.wasm`);
     };
 
     const buildStart = async () => {
@@ -73,7 +69,7 @@ export function c3c(options) {
             // Build C3 files
             rebuild();
         } catch (error) {
-            console.error('C3 compilation failed: ', error);
+            console.error('[C3] Build failed!');
         }
     }
 
@@ -91,7 +87,7 @@ export function c3c(options) {
                     type: 'full-reload'
                 });
             } catch (error) {
-                console.error('C3 compilation failed: ', error);
+                console.error('[C3] Build failed!');
             }
         }
     }
